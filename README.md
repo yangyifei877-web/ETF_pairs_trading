@@ -1,4 +1,6 @@
-# Yahoo Finance ETF pairs-trading reproduction
+# ETF pairs trading
+
+STAT 486 project - Yahoo Finance ETF pairs-trading reproduction.
 
 This project reconstructs the code shown in the supplied 76-page JupyterLab PDF.
 The PDF's long lines were clipped by the page boundary, so the code was restored
@@ -51,4 +53,3 @@ outputs may still differ from the printout.
 `Yahoo_Finance_ETF_Pairs_Reproduced.ipynb` contains the same code split into
 Jupyter cells. Select the `.venv` kernel, then run cells from top to bottom. The
 last cell contains an explicit example; it is not run automatically.
-
