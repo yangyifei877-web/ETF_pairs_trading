@@ -14,6 +14,28 @@ semantically and consolidated into a clean pipeline. It includes:
 - z-score entry/exit/stop rules and volatility-scaled returns
 - PC1 comparison, block-bootstrap/permutation tests, and window sensitivity
 
+## Reproduced results
+
+The smaller live-data validation run (`--mode quick`) completed successfully on
+2026-10-05. It downloaded 290,636 daily observations for 51 ETFs and produced a
+common backtest sample from 2012-10-25 through 2026-04-16 (3,386 trading days).
+The default walk-forward configuration used a 252-day formation window, a
+126-day holding window, the top 10 pairs, and removal of the first principal
+component before HDBSCAN clustering.
+
+| Pair-selection method | Backtest days | Total return | Annualized Sharpe | Max drawdown | Positive-return days |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Distance | 3,024 | 301.75% | 1.514 | -10.47% | 50.26% |
+| Covariance | 3,024 | 55.87% | 0.525 | -17.04% | 45.30% |
+| Cointegration | 2,772 | -26.98% | -0.245 | -38.40% | 33.69% |
+
+In this validation sample, distance-based selection produced the strongest
+risk-adjusted result. These figures are a reproducibility check rather than an
+investment claim: the backtest does not model transaction costs, bid-ask
+spreads, market impact, taxes, or the full effects of survivorship and data
+availability. Yahoo Finance can also revise historical observations. Re-running
+the project may therefore produce somewhat different values.
+
 ## Run in VS Code on macOS
 
 Open this folder in VS Code. In its Terminal, run:
